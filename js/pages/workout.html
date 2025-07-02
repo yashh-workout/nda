@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Workout Tracker | StudyX Hub</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body class="dark-theme">
+  <div class="container">
+    <h2 class="glow-title">🏋️ Workout Planner</h2>
+    <form id="workoutForm">
+      <input type="text" id="exercise" placeholder="Exercise name" required />
+      <input type="number" id="reps" placeholder="Reps" required />
+      <input type="number" id="sets" placeholder="Sets" required />
+      <button type="submit">Add Workout</button>
+    </form>
+
+    <ul id="workoutLog"></ul>
+  </div>
+
+  <script>
+    const form = document.getElementById("workoutForm");
+    const log = document.getElementById("workoutLog");
+    let workouts = JSON.parse(localStorage.getItem("workouts")) || [];
+
+    const render = () => {
+      log.innerHTML = "";
+      workouts.forEach((w, i) => {
+        const li = document.createElement("li");
+        li.textContent = `${w.exercise} - ${w.sets}x${w.reps}`;
+        log.appendChild(li);
+      });
+    };
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const workout = {
+        exercise: document.getElementById("exercise").value,
+        reps: document.getElementById("reps").value,
+        sets: document.getElementById("sets").value
+      };
+      workouts.push(workout);
+      localStorage.setItem("workouts", JSON.stringify(workouts));
+      form.reset();
+      render();
+    });
+
+    render();
+  </script>
+</body>
+</html>
