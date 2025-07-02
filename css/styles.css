@@ -1,0 +1,86 @@
+body.dark-theme {
+  background-color: #0d0d0d;
+  color: #f0f0f0;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 2rem;
+  margin: 0;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #00f0ff;
+  text-shadow: 0 0 8px #00f0ff;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: #1a1a1a;
+  border-left: 4px solid #00ffee;
+  border-radius: 6px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.card {
+  display: block;
+  text-align: center;
+  background: #1e1e1e;
+  color: #00ffee;
+  padding: 20px;
+  margin: 1rem;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 0 12px #00ffee;
+  transition: 0.3s ease-in-out;
+}
+
+.card:hover {
+  background: #00ffee;
+  color: #000;
+  box-shadow: 0 0 24px #00ffee;
+}
+
+.glow-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #00ffee;
+  text-shadow: 0 0 10px #00ffee;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.download-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 12px 20px;
+  background-color: #00ffee;
+  color: #000;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 0 10px #00ffee;
+  transition: background 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: #0ff;
+  box-shadow: 0 0 20px #00ffee;
+}
+
+.login-container {
+  max-width: 400px;
+ 
