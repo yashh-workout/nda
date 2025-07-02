@@ -1,0 +1,84 @@
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>StudyBot | NDA Assistant</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <style>
+    .chat-box {
+      background: #111;
+      border: 1px solid #333;
+      padding: 1rem;
+      height: 400px;
+      overflow-y: auto;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .chat-input {
+      width: 100%;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .bot, .user {
+      margin: 0.5rem 0;
+    }
+    .bot { color: #00f7ff; }
+    .user { color: #fff; text-align: right; }
+  </style>
+</head>
+<body class="dark-theme">
+  <div class="container">
+    <h2 class="glow-title">📚 StudyBot – NDA Prep Assistant</h2>
+    <div class="chat-box" id="chatBox">
+      <div class="bot">👋 Hi! I’m StudyBot. Ask me about NDA topics, formulas, or plans.</div>
+    </div>
+    <input type="text" id="chatInput" class="chat-input" placeholder="e.g. Explain projectile motion" />
+  </div>
+
+  <script>
+    const API_KEY = "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"; // Replace this with your actual key
+    const chatBox = document.getElementById("chatBox");
+    const chatInput = document.getElementById("chatInput");
+
+    chatInput.addEventListener("keydown", async (e) => {
+      if (e.key === "Enter" && chatInput.value.trim()) {
+        const userMsg = chatInput.value.trim();
+        appendMessage("user", userMsg);
+        chatInput.value = "";
+
+        const reply = await getBotReply(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);
+        appendMessage("bot", reply);
+      }
+    });
+
+    function appendMessage(sender, msg) {
+      const div = document.createElement("div");
+      div.className = sender;
+      div.textContent = (sender === "bot" ? "🤖 " : "🧑 ") + msg;
+      chatBox.appendChild(div);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    async function getBotReply(prompt) {
+      const res = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${API_KEY}`
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo",
+          messages: [{ role: "user", content: prompt }]
+        })
+      });
+
+      const data = await res.json();
+      return data.choices?.[0]?.message?.content?.trim() || "Sorry, I couldn’t think of a good response.";
+    }
+  </script>
+</body>
+</html>
