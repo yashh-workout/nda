@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NDA Planner | StudyX Hub</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body class="dark-theme">
+  <h1 class="glow-title">🛡️ NDA Study Planner</h1>
+
+  <div class="subject-block">
+    <h2>📘 Physics</h2>
+    <ul id="topicList">
+      <!-- Topics will be loaded here -->
+    </ul>
+    <div id="formulaSection" style="display: none;">
+      <h3>📄 Formula & Shortcut Sheet</h3>
+      <button onclick="viewFormula()">Open PDF</button>
+    </div>
+  </div>
+
+  <script type="module" src="../js/firebase-init.js"></script>
+  <script type="module" src="../js/nda.js"></script>
+</body>
+</html>
