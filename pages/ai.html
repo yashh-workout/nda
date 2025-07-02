@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Assistant | StudyX Hub</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body class="dark-theme">
+  <div class="container">
+    <h2 class="glow-title">🤖 StudyX AI Assistant Panel</h2>
+
+    <div class="grid">
+      <button class="ai-btn" onclick="launchBot('study')">📚 StudyBot</button>
+      <button class="ai-btn" onclick="launchBot('explain')">🧠 ExplainBot</button>
+      <button class="ai-btn" onclick="launchBot('quiz')">❓ QuizGenBot</button>
+      <button class="ai-btn" onclick="launchBot('fit')">💪 FitBot</button>
+      <button class="ai-btn" onclick="launchBot('voice')">🎙️ VoiceBot</button>
+    </div>
+
+    <iframe id="botFrame" src="" style="width:100%; height:500px; border:none; margin-top:2rem;"></iframe>
+  </div>
+
+  <script>
+    function launchBot(bot) {
+      const botFrame = document.getElementById("botFrame");
+      botFrame.src = `../bots/${bot}.html`;
+    }
+  </script>
+</body>
+</html>
