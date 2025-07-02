@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NDA Planner | StudyX Hub</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body class="dark-theme">
+  <div class="container">
+    <h2 class="glow-title">🛡️ NDA Study Planner</h2>
+    <ul id="topicList">
+      <li><input type="checkbox" onchange="unlockFormula('motion')"> Motion</li>
+      <li><input type="checkbox" onchange="unlockFormula('work')"> Work & Energy</li>
+      <li><input type="checkbox" onchange="unlockFormula('thermo')"> Thermodynamics</li>
+    </ul>
+    <div id="formulaLinks" style="margin-top: 2rem;"></div>
+  </div>
+
+  <script src="../js/nda.js"></script>
+  <script type="module" src="../js/firebase-init.js"></script>
+</body>
+</html>
